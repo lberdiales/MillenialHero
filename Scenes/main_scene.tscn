@@ -11,7 +11,7 @@
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 6.19788
 
 [node name="Node2D" type="Node2D"]
 
@@ -171,7 +171,7 @@ transform/pos = Vector2( -1.26642, 531.279 )
 transform/pos = Vector2( 154.025, 147.817 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.455109, 0.292816 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.0966187, 4.59465 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -184,7 +184,7 @@ texture = ExtResource( 5 )
 
 [node name="shape" type="CollisionShape2D" parent="player"]
 
-transform/pos = Vector2( 0.455109, 0.292816 )
+transform/pos = Vector2( 0.0966187, 4.59465 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
