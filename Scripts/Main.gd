@@ -1,18 +1,21 @@
 extends Node2D
 
+onready var player_node = get_node("player")
+onready var player_sprite = get_node("player/sprite")
+
 var player_speed = 150
 
-var player_left_texture = preload("res://assets/PlayerLeft.png")
-var player_up_texture = preload("res://assets/PlayerUp.png")
-var player_right_texture = preload("res://assets/PlayerRight.png")
-var player_down_texture = preload("res://assets/PlayerDown.png")
+var player_left_texture = preload("res://assets/player_left.png")
+var player_up_texture = preload("res://assets/player_up.png")
+var player_right_texture = preload("res://assets/player_right.png")
+var player_down_texture = preload("res://assets/player_down.png")
 
 func _ready():
 	set_process(true)
 	pass
 
 func _process(delta):
-	var player_texture = get_node("player/player_texture").get_texture()
+	var player_texture = player_sprite.get_texture()
 	var player_vel = Vector2(0, 0)
 	
 	if (Input.is_action_pressed("left")):
@@ -32,7 +35,7 @@ func _process(delta):
 		player_texture = player_down_texture
 	
 	# Cambio el sprite
-	get_node("player/player_texture").set_texture(player_texture)
+	player_sprite.set_texture(player_texture)
 	
 	# Aplico movimiento
-	get_node("player").move(player_vel)
+	player_node.move(player_vel)

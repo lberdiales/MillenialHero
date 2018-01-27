@@ -4,11 +4,11 @@
 [ext_resource path="res://Assets/town/town01.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/building_scene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
-[ext_resource path="res://Assets/PlayerUp.png" type="Texture" id=5]
+[ext_resource path="res://Assets/player_up.png" type="Texture" id=5]
 [ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=6]
 [ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=7]
 
-[sub_resource type="CircleShape2D" id=4]
+[sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -168,10 +168,9 @@ transform/pos = Vector2( -1.26642, 531.279 )
 
 [node name="player" type="KinematicBody2D" parent="."]
 
-editor/display_folded = true
 transform/pos = Vector2( 154.025, 147.817 )
 input/pickable = false
-shapes/0/shape = SubResource( 4 )
+shapes/0/shape = SubResource( 1 )
 shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.455109, 0.292816 )
 shapes/0/trigger = false
 collision/layers = 1
@@ -179,15 +178,15 @@ collision/mask = 1
 collision/margin = 0.08
 script/script = ExtResource( 4 )
 
-[node name="player_texture" type="Sprite" parent="player"]
+[node name="sprite" type="Sprite" parent="player"]
 
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 5 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+[node name="shape" type="CollisionShape2D" parent="player"]
 
 transform/pos = Vector2( 0.455109, 0.292816 )
-shape = SubResource( 4 )
+shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
 
