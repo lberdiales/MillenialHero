@@ -17,6 +17,6 @@ func _on_hotspot_exit( hotspot ):
 	process_hotspots()
 
 func process_hotspots():
-	# Aca hay que revisar cual conviene mas y conectar a ese
+	# Aca hay que revisar cual conviene mas y conectar a ese (usando hotspot.signal_strength())
 	if (hotspots.size() > 0):
 		hotspots.values().front().connect()

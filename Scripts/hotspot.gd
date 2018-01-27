@@ -35,4 +35,7 @@ func consume_energy(energy):
 		available_energy = 0
 		emit_signal("on_hotspot_exit", self)
 		queue_free()
-	
+
+func signal_strength(otherTransform):
+	# Deberia devolver un % (si los centros coinciden 100%)
+	return 100.0
