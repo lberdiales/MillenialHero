@@ -1,0 +1,203 @@
+[gd_scene load_steps=9 format=1]
+
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
+[ext_resource path="res://Assets/town/town01.png" type="Texture" id=2]
+[ext_resource path="res://Scenes/building_scene.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
+[ext_resource path="res://Assets/PlayerUp.png" type="Texture" id=5]
+[ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=6]
+[ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=7]
+
+[sub_resource type="CircleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Node2D" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+
+editor/display_folded = true
+texture = ExtResource( 2 )
+
+[node name="building" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 1.76868, -353.729 )
+
+[node name="building1" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 157.409, -265.886 )
+
+[node name="building2" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 312.461, -178.044 )
+
+[node name="building3" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 468.282, -90.0912 )
+
+[node name="building4" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 624.796, -0.753693 )
+
+[node name="building5" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 781.31, 87.1988 )
+
+[node name="building6" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -155.003, -265.304 )
+
+[node name="building7" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 0.818054, -177.351 )
+
+[node name="building8" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 155.947, -88.7061 )
+
+[node name="building9" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 312.461, -0.753632 )
+
+[node name="building10" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 468.282, 88.584 )
+
+[node name="building11" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 624.796, 176.536 )
+
+[node name="building12" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -310.825, -175.273 )
+
+[node name="building13" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -155.696, -87.321 )
+
+[node name="building14" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -0.567047, 0.63147 )
+
+[node name="building15" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 157.332, 88.5839 )
+
+[node name="building16" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 311.768, 177.229 )
+
+[node name="building17" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 469.667, 265.181 )
+
+[node name="building18" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -465.953, -88.0135 )
+
+[node name="building19" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -312.21, 0.631439 )
+
+[node name="building20" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -156.388, 88.5839 )
+
+[node name="building21" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -0.567047, 177.229 )
+
+[node name="building22" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 154.562, 265.181 )
+
+[node name="building23" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 311.768, 353.826 )
+
+[node name="building24" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -624.843, 2.41034 )
+
+[node name="building25" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -468.824, 89.6413 )
+
+[node name="building26" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -312.307, 177.371 )
+
+[node name="building27" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -157.285, 265.599 )
+
+[node name="building28" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -2.26337, 353.826 )
+
+[node name="building29" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( 155.749, 442.054 )
+
+[node name="building30" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -781.36, 90.6382 )
+
+[node name="building31" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -625.84, 178.368 )
+
+[node name="building32" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -469.821, 266.595 )
+
+[node name="building33" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -313.802, 355.322 )
+
+[node name="building34" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -158.282, 443.55 )
+
+[node name="building35" parent="background" instance=ExtResource( 3 )]
+
+transform/pos = Vector2( -1.26642, 531.279 )
+
+[node name="player" type="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 154.025, 147.817 )
+input/pickable = false
+shapes/0/shape = SubResource( 4 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.455109, 0.292816 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+script/script = ExtResource( 4 )
+
+[node name="player_texture" type="Sprite" parent="player"]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+
+transform/pos = Vector2( 0.455109, 0.292816 )
+shape = SubResource( 4 )
+trigger = false
+_update_shape_index = 0
+
+[node name="overlay" type="Sprite" parent="."]
+
+texture = ExtResource( 6 )
+
+[node name="collition_ref" type="Sprite" parent="."]
+
+visibility/visible = false
+texture = ExtResource( 7 )
+
+
