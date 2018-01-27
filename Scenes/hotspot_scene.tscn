@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=1]
+
+[ext_resource path="res://Scripts/hotspot.gd" type="Script" id=1]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+
+custom_solver_bias = 0.0
+points = Vector2Array( -7.34268, 36.2901, -4.14206, 17.8865, 5.99325, -1.05049, 24.9303, -16.7869, 47.3346, -30.1228, 75.8735, -38.3911, 105.746, -41.8584, 137.486, -39.7247, 166.558, -31.4564, 190.296, -19.1874, 210.033, -0.783768, 220.702, 16.5529, 224.436, 38.1572, 221.235, 57.6276, 210.033, 76.2979, 195.363, 90.434, 168.158, 105.637, 139.619, 114.172, 108.947, 117.373, 77.2071, 114.439, 49.7351, 107.237, 25.197, 94.7015, 6.52669, 75.7645, -4.14206, 60.2948 )
+
+[node name="hotspot" type="Area2D"]
+
+input/pickable = true
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+shapes/0/trigger = false
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+script/script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+
+build_mode = 0
+polygon = Vector2Array( -7.34268, 36.2901, -4.14206, 17.8865, 5.99325, -1.05049, 24.9303, -16.7869, 47.3346, -30.1228, 75.8735, -38.3911, 105.746, -41.8584, 137.486, -39.7247, 166.558, -31.4564, 190.296, -19.1874, 210.033, -0.783768, 220.702, 16.5529, 224.436, 38.1572, 221.235, 57.6276, 210.033, 76.2979, 195.363, 90.434, 168.158, 105.637, 139.619, 114.172, 108.947, 117.373, 77.2071, 114.439, 49.7351, 107.237, 25.197, 94.7015, 6.52669, 75.7645, -4.14206, 60.2948 )
+shape_range = Vector2( 0, 0 )
+trigger = false
+
+[connection signal="body_enter" from="." to="." method="_on_hotspot_body_enter"]
+
+[connection signal="body_exit" from="." to="." method="_on_hotspot_body_exit"]
+
+
