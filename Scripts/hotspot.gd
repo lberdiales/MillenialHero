@@ -1,18 +1,38 @@
 extends Area2D
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+onready var hotspot_id = get_name()
+
+const ENERGY_CONSUMPTION = 10
+const MIN_ENERGY = ENERGY_CONSUMPTION
+const MAX_ENERGY = 100
+
+var available_energy
+
+signal on_hotspot_enter(hotspot)
+signal on_hotspot_exit(hotspot)
 
 func _ready():
-	# Called every time the node is added to the scene.
-	# Initialization here
-	pass
-
+	randomize()
+	available_energy = randi()%MAX_ENERGY+MIN_ENERGY
 
 func _on_hotspot_body_enter( body ):
-	print ("_on_hotspot_body_enter: ", body.get_name())
+	if (body.get_name() == "player"):
+		emit_signal("on_hotspot_enter", self)
 
 
 func _on_hotspot_body_exit( body ):
-	print ("_on_hotspot_body_exit: ", body.get_name())
+	if (body.get_name() == "player"):
+		emit_signal("on_hotspot_exit", self)
+
+func connect():
+	# Falta consumir energia por tiempo
+	consume_energy(ENERGY_CONSUMPTION)
+
+func consume_energy(energy):
+	if (available_energy > energy):
+		available_energy -= energy
+	else:
+		available_energy = 0
+		emit_signal("on_hotspot_exit", self)
+		queue_free()
+	
