@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=10 format=1]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Assets/town/town01.png" type="Texture" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Assets/player_up.png" type="Texture" id=5]
 [ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=6]
 [ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/hotspot_scene.tscn" type="PackedScene" id=8]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -19,6 +20,7 @@ script/script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="."]
 
+editor/display_folded = true
 texture = ExtResource( 2 )
 
 [node name="building" parent="background" instance=ExtResource( 3 )]
@@ -197,5 +199,9 @@ texture = ExtResource( 6 )
 
 visibility/visible = false
 texture = ExtResource( 7 )
+
+[node name="Area2D" parent="." instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 49.0327, 96.5567 )
 
 
