@@ -5,10 +5,10 @@ onready var player_sprite = get_node("player/sprite")
 
 var player_speed = 150
 
-var player_left_texture = preload("res://assets/player_left.png")
-var player_up_texture = preload("res://assets/player_up.png")
-var player_right_texture = preload("res://assets/player_right.png")
-var player_down_texture = preload("res://assets/player_down.png")
+var player_left_texture = preload("res://Assets/player_left.png")
+var player_up_texture = preload("res://Assets/player_up.png")
+var player_right_texture = preload("res://Assets/player_right.png")
+var player_down_texture = preload("res://Assets/player_down.png")
 
 func _ready():
 	set_process(true)
