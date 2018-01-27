@@ -22,7 +22,6 @@ func _process(delta):
 	var player_vel = Vector2()
 	var player_step = Vector2()
 	step_counter += delta * player_step_freq
-	print(step_counter)
 	var new_step = -abs(player_step_size * cos(step_counter))
 	
 	if (Input.is_action_pressed("left")):
