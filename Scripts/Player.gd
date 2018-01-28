@@ -62,16 +62,16 @@ func process_status(delta):
 		var desperation_due_to_no_battery = process_battery_desperation()
 		var desperation_due_to_no_wifi = process_wifi_desperation()
 		
-		desperation += desperation_due_to_no_wifi + desperation_due_to_no_battery
+		desperation = min(desperation + desperation_due_to_no_wifi + desperation_due_to_no_battery, MAX_DESPERATION)
 		
 		if (desperation >= MAX_DESPERATION):
 			die()
-		else:
-			# FIXME: Arreglar
-			status_delta_acum = 0
+		
+		# FIXME: Arreglar
+		status_delta_acum = 0
 
 func process_battery_desperation():
-	battery_life -= DEFAULT_BATTERY_USE
+	battery_life = max(battery_life - DEFAULT_BATTERY_USE, MIN_BATTERY_LIFE)
 	
 	if (battery_life <= MIN_BATTERY_LIFE):
 		return DESPERATION_DUE_TO_NO_BATTERY
@@ -158,12 +158,12 @@ func process_hotspots():
 func _on_selfie_token_found(selfie_token):
 	sfx_node.play("millenial_hero_sfx_camera_flash")
 	particle_node.set_emitting(true)
-	desperation -= (SERENITY_DUE_TO_LIKE * selfie_token.likes_count)
+	desperation = max(desperation - (SERENITY_DUE_TO_LIKE * selfie_token.likes_count), MIN_DESPERATION)
 	emit_signal("on_player_earned_likes", selfie_token.likes_count)
 
 func _on_startrucks_token_found(startrucks_token):
 	sfx_node.play("millenial_hero_sfx_coffee")
-	battery_life += startrucks_token.battery_charge
+	battery_life = min(battery_life + startrucks_token.battery_charge, MAX_BATTERY_LIFE)
 	emit_signal("on_player_drunk_coffee")
 
 # Angry/Relax

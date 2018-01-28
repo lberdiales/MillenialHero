@@ -39,7 +39,7 @@ func update_battery():
 func update_wifi():
 	var wifi_strength = 100.0
 	if (player.current_hotspot != null):
-		wifi_strength = player.current_hotspot.signal_strength(player)
+		wifi_strength = wifi_strength - player.current_hotspot.signal_strength(player)
 	wifi.set_val(wifi_strength)
 
 func update_likes():
