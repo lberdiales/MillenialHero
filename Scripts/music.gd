@@ -5,6 +5,7 @@ onready var music_stream_2 = get_node("medium")
 onready var music_stream_3 = get_node("heavy")
 onready var animation_fadeout = get_node("animation_fadeout")
 onready var animation_fadein = get_node("animation_fadein")
+onready var sfx = get_node("sfx")
 
 var current_music_stream
 
@@ -36,6 +37,13 @@ func switch_music_stream(desperate):
 		animation_fadein.start()
 		
 		current_music_stream = next_music_stream
+		
+		if (next_music_stream == music_stream_1):
+			sfx.play("millenial_hero_sfx_relax")
+		elif (next_music_stream == music_stream_2):
+			sfx.play("millenial_hero_sfx_angry_2")
+		elif (next_music_stream == music_stream_3):
+			sfx.play("millenial_hero_sfx_angry_1")
 
 func music_stream(desperate):
 	if (desperate >= 0.0 and desperate <= 1.0/3.0):
