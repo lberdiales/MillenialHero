@@ -25,7 +25,8 @@
 [ext_resource path="res://Assets/town/emoji/0023.png" type="Texture" id=23]
 [ext_resource path="res://Assets/town/emoji/0024.png" type="Texture" id=24]
 [ext_resource path="res://Assets/town/emoji/0025.png" type="Texture" id=25]
-[ext_resource path="res://Scenes/status.gd" type="Script" id=26]
+[ext_resource path="res://Scripts/status.gd" type="Script" id=26]
+
 
 [sub_resource type="SpriteFrames" id=1]
 
