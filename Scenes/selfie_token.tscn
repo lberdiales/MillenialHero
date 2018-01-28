@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=1]
+[gd_scene load_steps=27 format=1]
 
 [ext_resource path="res://Scripts/selfie_token.gd" type="Script" id=1]
 [ext_resource path="res://Assets/town/camera0001.png" type="Texture" id=2]
@@ -24,7 +24,6 @@
 [ext_resource path="res://Assets/town/camera0021.png" type="Texture" id=22]
 [ext_resource path="res://Assets/town/camera0022.png" type="Texture" id=23]
 [ext_resource path="res://Assets/town/camera0023.png" type="Texture" id=24]
-[ext_resource path="res://Assets/audio/millenial_hero_sfx_camera_flash.wav" type="Sample" id=25]
 
 [sub_resource type="CircleShape2D" id=2]
 
@@ -39,15 +38,6 @@ animations = [ {
 "name": "default",
 "speed": 12.0
 } ]
-
-[sub_resource type="SampleLibrary" id=3]
-
-samples/millenial_hero_sfx_camera_flash = {
-"db": 0.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": ExtResource( 25 )
-}
 
 [node name="selfie_token" type="Area2D"]
 
@@ -66,7 +56,7 @@ likes = 10
 
 frames = SubResource( 1 )
 animation = "default"
-frame = 18
+frame = 20
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -74,23 +64,6 @@ playing = true
 shape = SubResource( 2 )
 trigger = false
 _update_shape_index = 0
-
-[node name="sound" type="SamplePlayer" parent="."]
-
-config/polyphony = 1
-config/samples = SubResource( 3 )
-default/volume_db = 0.0
-default/pitch_scale = 1.0
-default/pan = 0.0
-default/depth = 0.0
-default/height = 0.0
-default/filter/type = 0
-default/filter/cutoff = 5000.0
-default/filter/resonance = 1.0
-default/filter/gain = 1.0
-default/reverb_room = 2
-default/reverb_send = 0.0
-default/chorus_send = 0.0
 
 [connection signal="body_enter" from="." to="." method="_on_selfie_token_body_enter"]
 

@@ -27,8 +27,10 @@ var player_sw_texture = preload("res://Assets/player_sw.png")
 var hotspots = []
 var current_hotspot
 
+# Tokens
+onready var sfx_node = get_node("sfx")
+
 func _ready():
-	connect("on_selfie_token_found", self, "on_selfie_token_found")
 	set_process(true)
 
 func _process(delta):
@@ -129,5 +131,8 @@ func process_hotspots():
 			current_hotspot = hotspot
 
 # Tokens
-func on_selfie_token_found():
-	print("LMB.on_selfie_token_found")
+func _on_selfie_token_found(selfie_token):
+	sfx_node.play("millenial_hero_sfx_camera_flash")
+
+func _on_startrucks_token_found(startrucks_token):
+	sfx_node.play("millenial_hero_sfx_camera_coffee")
