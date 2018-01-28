@@ -9,6 +9,6 @@ func _ready():
 	# Initialization here
 	pass
 
-func set_mood(val):
-	var mood = max(min(100,val),0)
-	set_frame(floor(get_sprite_frames().get_frame_count() * mood/100))
+func set_val(val):
+	var capped_val = max(min(100,val),0)
+	set_frame(round((get_sprite_frames().get_frame_count()-1) * capped_val/100))
