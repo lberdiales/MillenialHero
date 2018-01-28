@@ -28,6 +28,7 @@ var hotspots = []
 var current_hotspot
 
 func _ready():
+	connect("on_selfie_token_found", self, "on_selfie_token_found")
 	set_process(true)
 
 func _process(delta):
@@ -126,3 +127,7 @@ func process_hotspots():
 	for hotspot in hotspots:
 		if (hotspot.signal_strength(self) > current_hotspot.signal_strength(self)):
 			current_hotspot = hotspot
+
+# Tokens
+func on_selfie_token_found():
+	print("LMB.on_selfie_token_found")
