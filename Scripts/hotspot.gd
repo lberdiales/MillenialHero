@@ -29,18 +29,6 @@ func _on_hotspot_body_exit( body ):
 	if (body.get_name() == "player"):
 		emit_signal("on_hotspot_exit", self)
 
-func connect():
-	# Falta consumir energia por tiempo
-	consume_energy(ENERGY_CONSUMPTION)
-
-func consume_energy(energy):
-	if (available_energy > energy):
-		available_energy -= energy
-	else:
-		available_energy = 0
-		emit_signal("on_hotspot_exit", self)
-		queue_free()
-
 func signal_strength(otherTransform):
 	# Deberia devolver un % (si los centros coinciden 100%)
 	var screen_distance = otherTransform.get_global_pos()-get_pos()
