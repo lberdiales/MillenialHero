@@ -1,22 +1,25 @@
-[gd_scene load_steps=14 format=1]
+[gd_scene load_steps=17 format=1]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Assets/town/background01.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/building_scene.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
-[ext_resource path="res://Assets/player_se.png" type="Texture" id=5]
-[ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=6]
-[ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/hotspot_scene.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scripts/music.gd" type="Script" id=9]
-[ext_resource path="res://Assets/audio/millenial_hero_1_v2.ogg" type="AudioStream" id=10]
-[ext_resource path="res://Assets/audio/millenial_hero_2.ogg" type="AudioStream" id=11]
-[ext_resource path="res://Assets/audio/millenial_hero_3_v1.ogg" type="AudioStream" id=12]
+[ext_resource path="res://Assets/town/token.png" type="Texture" id=5]
+[ext_resource path="res://Assets/player_se.png" type="Texture" id=6]
+[ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/startrucks_token.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/selfie_token.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/hotspot_scene.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scripts/music.gd" type="Script" id=12]
+[ext_resource path="res://Assets/audio/millenial_hero_1_v2.ogg" type="AudioStream" id=13]
+[ext_resource path="res://Assets/audio/millenial_hero_2.ogg" type="AudioStream" id=14]
+[ext_resource path="res://Assets/audio/millenial_hero_3_v1.ogg" type="AudioStream" id=15]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
-radius = 10.0
+radius = 7.22867
 
 [node name="Node2D" type="Node2D"]
 
@@ -173,10 +176,11 @@ transform/pos = Vector2( -1.26642, 531.279 )
 
 [node name="player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 154.025, 147.817 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
-shapes/0/transform = Matrix32( 1, 0, 0, 1, 0.455109, 0.292816 )
+shapes/0/transform = Matrix32( 1, 0, 0, 1, -0.544891, 3.29282 )
 shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
@@ -187,13 +191,20 @@ TIME_TO_PROCESS_STATUS = 2
 DESPERATION_DUE_TO_NO_WIFI = 5
 DESPERATION_DUE_TO_NO_BATTERY = 1
 
+[node name="token" type="Sprite" parent="player"]
+
+transform/pos = Vector2( 0, -35 )
+z/z = 1
+z/relative = false
+texture = ExtResource( 5 )
+
 [node name="sprite" type="Sprite" parent="player"]
 
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="shape" type="CollisionShape2D" parent="player"]
 
-transform/pos = Vector2( 0.455109, 0.292816 )
+transform/pos = Vector2( -0.544891, 3.29282 )
 shape = SubResource( 1 )
 trigger = false
 _update_shape_index = 0
@@ -219,19 +230,57 @@ drag_margin/bottom = 0.2
 
 [node name="overlay" type="Sprite" parent="."]
 
-transform/pos = Vector2( -2.73706, -1.92249 )
-texture = ExtResource( 6 )
+transform/pos = Vector2( 0.262939, -0.187378 )
+texture = ExtResource( 7 )
+
+[node name="tokens" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="startrucks" parent="tokens" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( 278.543, 16.8488 )
+
+[node name="startrucks1" parent="tokens" instance=ExtResource( 8 )]
+
+transform/pos = Vector2( -397.356, 104.383 )
+
+[node name="Selfie" parent="tokens" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 119.667, 100.831 )
+
+[node name="Selfie1" parent="tokens" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( -64.2658, -165.097 )
+
+[node name="Selfie2" parent="tokens" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( 427.7, 99.7228 )
+
+[node name="Selfie3" parent="tokens" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( -245.983, 183.933 )
+
+[node name="Selfie4" parent="tokens" instance=ExtResource( 9 )]
+
+transform/pos = Vector2( -213.85, -94.1826 )
+
+[node name="overlay1" type="Sprite" parent="."]
+
+visibility/opacity = 0.7
+transform/pos = Vector2( 0.262939, -0.187378 )
+texture = ExtResource( 7 )
 
 [node name="collition_ref" type="Sprite" parent="."]
 
 visibility/visible = false
-texture = ExtResource( 7 )
+texture = ExtResource( 10 )
 
-[node name="hotspot" parent="." instance=ExtResource( 8 )]
+[node name="hotspot" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( 49.0327, 96.5567 )
 
-[node name="hotspot1" parent="." instance=ExtResource( 8 )]
+[node name="hotspot1" parent="." instance=ExtResource( 11 )]
 
 transform/pos = Vector2( -205.475, 73.2567 )
 
@@ -241,11 +290,11 @@ transform/pos = Vector2( -9.14972, 683.883 )
 
 [node name="Node" type="Node" parent="."]
 
-script/script = ExtResource( 9 )
+script/script = ExtResource( 12 )
 
 [node name="music_1" type="StreamPlayer" parent="Node"]
 
-stream/stream = ExtResource( 10 )
+stream/stream = ExtResource( 13 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -256,7 +305,7 @@ stream/buffering_ms = 500
 
 [node name="music_2" type="StreamPlayer" parent="Node"]
 
-stream/stream = ExtResource( 11 )
+stream/stream = ExtResource( 14 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
@@ -267,7 +316,7 @@ stream/buffering_ms = 500
 
 [node name="music_3" type="StreamPlayer" parent="Node"]
 
-stream/stream = ExtResource( 12 )
+stream/stream = ExtResource( 15 )
 stream/play = false
 stream/loop = true
 stream/volume_db = 0.0
