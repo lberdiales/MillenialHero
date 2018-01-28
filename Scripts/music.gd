@@ -1,8 +1,8 @@
 extends Node
 
-onready var music_stream_1 = get_node("music_1")
-onready var music_stream_2 = get_node("music_2")
-onready var music_stream_3 = get_node("music_3")
+onready var music_stream_1 = get_node("light")
+onready var music_stream_2 = get_node("medium")
+onready var music_stream_3 = get_node("heavy")
 onready var animation_fadeout = get_node("animation_fadeout")
 onready var animation_fadein = get_node("animation_fadein")
 

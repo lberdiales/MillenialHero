@@ -14,9 +14,9 @@
 [ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=12]
 [ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/music.gd" type="Script" id=14]
-[ext_resource path="res://Assets/audio/millenial_hero_1_v2.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Assets/audio/millenial_hero_2.ogg" type="AudioStream" id=16]
-[ext_resource path="res://Assets/audio/millenial_hero_3_v1.ogg" type="AudioStream" id=17]
+[ext_resource path="res://Assets/audio/millenial_hero_light_track.ogg" type="AudioStream" id=15]
+[ext_resource path="res://Assets/audio/millenial_hero_medium_track.ogg" type="AudioStream" id=16]
+[ext_resource path="res://Assets/audio/millenial_hero_heavy_track.ogg" type="AudioStream" id=17]
 [ext_resource path="res://Scenes/hotspot_scene.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/selfie_token.tscn" type="PackedScene" id=19]
 [ext_resource path="res://Scenes/startrucks_token.tscn" type="PackedScene" id=20]
@@ -334,7 +334,7 @@ transform/pos = Vector2( -9.14972, 683.883 )
 
 script/script = ExtResource( 14 )
 
-[node name="music_1" type="StreamPlayer" parent="background_music"]
+[node name="light" type="StreamPlayer" parent="background_music"]
 
 stream/stream = ExtResource( 15 )
 stream/play = false
@@ -345,7 +345,7 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="music_2" type="StreamPlayer" parent="background_music"]
+[node name="medium" type="StreamPlayer" parent="background_music"]
 
 stream/stream = ExtResource( 16 )
 stream/play = false
@@ -356,7 +356,7 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="music_3" type="StreamPlayer" parent="background_music"]
+[node name="heavy" type="StreamPlayer" parent="background_music"]
 
 stream/stream = ExtResource( 17 )
 stream/play = false
