@@ -165,10 +165,3 @@ func _on_startrucks_token_found(startrucks_token):
 	sfx_node.play("millenial_hero_sfx_coffee")
 	battery_life = min(battery_life + startrucks_token.battery_charge, MAX_BATTERY_LIFE)
 	emit_signal("on_player_drunk_coffee")
-
-# Angry/Relax
-func play_angry_sfx():
-	sfx_node.play("millenial_hero_sfx_angry_2")
-
-func play_relax_sfx():
-	sfx_node.play("millenial_hero_sfx_relax")

@@ -6,6 +6,7 @@ onready var music_stream_3 = get_node("heavy")
 onready var animation_fadeout = get_node("animation_fadeout")
 onready var animation_fadein = get_node("animation_fadein")
 onready var sfx = get_node("sfx")
+onready var delay_action = get_node("delay_action")
 
 var current_music_stream
 
@@ -39,11 +40,12 @@ func switch_music_stream(desperate):
 		current_music_stream = next_music_stream
 		
 		if (next_music_stream == music_stream_1):
-			sfx.play("millenial_hero_sfx_relax")
+			delay_action.connect("timeout", self, "play_relax_sfx")
 		elif (next_music_stream == music_stream_2):
-			sfx.play("millenial_hero_sfx_angry_2")
+			delay_action.connect("timeout", self, "play_medium_angry_sfx")
 		elif (next_music_stream == music_stream_3):
-			sfx.play("millenial_hero_sfx_angry_1")
+			delay_action.connect("timeout", self, "play_heavy_angry_sfx")
+		delay_action.start()
 
 func music_stream(desperate):
 	if (desperate >= 0.0 and desperate <= 1.0/3.0):
@@ -54,3 +56,12 @@ func music_stream(desperate):
 		return music_stream_3
 	else:
 		return current_music_stream
+
+func play_relax_sfx():
+	sfx.play("millenial_hero_sfx_relax")
+
+func play_medium_angry_sfx():
+	sfx.play("millenial_hero_sfx_angry_2_short")
+
+func play_heavy_angry_sfx():
+	sfx.play("millenial_hero_sfx_angry_1")
