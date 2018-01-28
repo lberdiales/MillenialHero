@@ -11,4 +11,4 @@ func _ready():
 
 func set_mood(val):
 	var mood = max(min(100,val),0)
-	set_frame(round(get_sprite_frames().get_frame_count() * mood/100))
+	set_frame(floor(get_sprite_frames().get_frame_count() * mood/100))
