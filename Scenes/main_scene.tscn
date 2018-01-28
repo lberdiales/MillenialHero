@@ -292,6 +292,13 @@ default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
 
+[node name="delay_action" type="Timer" parent="background_music"]
+
+process_mode = 1
+wait_time = 2.5
+one_shot = true
+autostart = false
+
 [node name="player" type="KinematicBody2D" parent="."]
 
 transform/pos = Vector2( 4.87344, 42.4788 )
