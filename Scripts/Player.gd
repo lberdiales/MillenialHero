@@ -3,6 +3,7 @@ extends KinematicBody2D
 onready var player_sprite = get_node("sprite")
 
 # Status
+export var MIN_DESPERATION = 0.0
 export var MAX_DESPERATION = 100.0
 var desperation = 0
 
@@ -29,6 +30,8 @@ var current_hotspot
 
 # Tokens
 onready var sfx_node = get_node("sfx")
+
+export var SERENITY_DUE_TO_LIKE = 1
 
 func _ready():
 	set_process(true)
@@ -133,6 +136,8 @@ func process_hotspots():
 # Tokens
 func _on_selfie_token_found(selfie_token):
 	sfx_node.play("millenial_hero_sfx_camera_flash")
+	desperation -= (SERENITY_DUE_TO_LIKE * selfie_token.likes_count)
 
 func _on_startrucks_token_found(startrucks_token):
 	sfx_node.play("millenial_hero_sfx_camera_coffee")
+	# FIXME: Recargar celular

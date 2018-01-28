@@ -2,11 +2,11 @@ extends Area2D
 
 signal on_selfie_token_found(selfie_token)
 
-# FIXME: Definir cantidad de likes/reputacion
-export var likes = 10
+var likes_count
 
 func _ready():
-	pass
+	randomize()
+	likes_count = randi()%10 + 1
 
 func _on_selfie_token_body_enter( body ):
 	if (body.get_name() == "player"):

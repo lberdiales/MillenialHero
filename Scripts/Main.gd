@@ -1,7 +1,6 @@
 extends Node2D
 
 onready var player = get_node("player")
-
 onready var tokens = get_node("tokens")
 
 func _ready():
