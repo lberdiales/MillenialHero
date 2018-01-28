@@ -3,14 +3,23 @@ extends KinematicBody2D
 onready var player_sprite = get_node("sprite")
 
 # Status
+export var MIN_DESPERATION = 0.0
 export var MAX_DESPERATION = 100.0
-var desperation = 0
+var desperation = MIN_DESPERATION
 
 export var TIME_TO_PROCESS_STATUS = 2
 var status_delta_acum = 0.0
 
 export var DESPERATION_DUE_TO_NO_WIFI = 5
-export var DESPERATION_DUE_TO_NO_BATTERY = 1
+
+export var MIN_BATTERY_LIFE = 0.0
+export var MAX_BATTERY_LIFE = 100.0
+var battery_life = MAX_BATTERY_LIFE
+
+export var DEFAULT_BATTERY_USE = 1
+
+export var DESPERATION_DUE_TO_LOW_BATTERY = 10
+export var DESPERATION_DUE_TO_NO_BATTERY = 25
 
 # Movement
 var player_speed = 100
@@ -30,6 +39,8 @@ var current_hotspot
 # Tokens
 onready var sfx_node = get_node("sfx")
 
+export var SERENITY_DUE_TO_LIKE = 1
+
 func _ready():
 	set_process(true)
 
@@ -42,6 +53,8 @@ func process_status(delta):
 	status_delta_acum += delta
 	
 	if (status_delta_acum >= TIME_TO_PROCESS_STATUS):
+		print("battery_life:", battery_life, ", desperation:", desperation)
+		
 		var desperation_due_to_no_battery = process_battery_desperation()
 		var desperation_due_to_no_wifi = process_wifi_desperation()
 		
@@ -54,7 +67,14 @@ func process_status(delta):
 			status_delta_acum = 0
 
 func process_battery_desperation():
-	return DESPERATION_DUE_TO_NO_BATTERY
+	battery_life -= DEFAULT_BATTERY_USE
+	
+	if (battery_life <= MIN_BATTERY_LIFE):
+		return DESPERATION_DUE_TO_NO_BATTERY
+	elif (battery_life <= 25.0):
+		return DESPERATION_DUE_TO_LOW_BATTERY
+	else:
+		return DEFAULT_BATTERY_USE
 
 func process_wifi_desperation():
 	var signal_strength = 0.0
@@ -133,6 +153,8 @@ func process_hotspots():
 # Tokens
 func _on_selfie_token_found(selfie_token):
 	sfx_node.play("millenial_hero_sfx_camera_flash")
+	desperation -= (SERENITY_DUE_TO_LIKE * selfie_token.likes_count)
 
 func _on_startrucks_token_found(startrucks_token):
 	sfx_node.play("millenial_hero_sfx_camera_coffee")
+	battery_life += startrucks_token.battery_charge
