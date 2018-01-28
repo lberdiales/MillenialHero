@@ -237,6 +237,7 @@ transform/pos = Vector2( -9.14972, 683.883 )
 
 [node name="Node" type="Node" parent="."]
 
+editor/display_folded = true
 script/script = ExtResource( 9 )
 
 [node name="music_1" type="StreamPlayer" parent="Node"]
