@@ -4,6 +4,7 @@ extends Node
 onready var game = get_node("game")
 onready var player = game.get_node("player")
 onready var background_music = game.get_node("background_music")
+onready var gameover = get_node("UI/gameover")
 
 # UI
 onready var emoji = get_node("UI/emoji")
@@ -23,6 +24,9 @@ func _process(delta):
 	update_battery()
 	update_wifi()
 	update_likes()
+	
+	if (gameover.is_visible() and Input.is_action_pressed("ui_accept")):
+		get_tree().reload_current_scene()
 
 func update_music():
 	var desperation = player.desperation
@@ -46,3 +50,7 @@ func update_likes():
 	# FIXME: Pasar likes_acum al player, no mantenerlo en Main.gd
 	var likes_acum = game.likes_acum
 	likes.set_val(likes_acum)
+
+func _on_game_gameover():
+	gameover.set_val(game.likes_acum)
+	gameover.show()

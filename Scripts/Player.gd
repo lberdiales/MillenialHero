@@ -3,6 +3,8 @@ extends KinematicBody2D
 signal on_player_earned_likes(likes_count)
 signal on_player_drunk_coffee()
 
+signal die()
+
 onready var player_sprite = get_node("sprite")
 onready var particle_node = get_node("likes_particle")
 
@@ -88,8 +90,7 @@ func process_wifi_desperation():
 	return DESPERATION_DUE_TO_NO_WIFI - ((signal_strength / 100) * DESPERATION_DUE_TO_NO_WIFI)
 
 func die():
-	# Pendiente implementar
-	pass
+	emit_signal("die")
 
 # Movement
 func process_input(delta):

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://Scenes/wrapper.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/main_scene.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Scenes/status.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/battery.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Scenes/likes.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/gameover.tscn" type="PackedScene" id=8]
 
 [node name="Node" type="Node"]
 
@@ -44,5 +45,11 @@ transform/pos = Vector2( 358.567, 46.4267 )
 [node name="likes" parent="UI" instance=ExtResource( 7 )]
 
 transform/pos = Vector2( 138.465, 44.7976 )
+
+[node name="gameover" parent="UI" instance=ExtResource( 8 )]
+
+visibility/visible = false
+
+[connection signal="gameover" from="game" to="." method="_on_game_gameover"]
 
 

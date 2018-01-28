@@ -1,5 +1,7 @@
 extends Node2D
 
+signal gameover()
+
 onready var player = get_node("player")
 
 onready var levels = get_node("levels").get_children()
@@ -59,3 +61,6 @@ func load_next_level():
 	else:
 		# FIXME: Hay que codear pantalla de fin
 		print("condicion de fin")
+
+func _on_player_die():
+	emit_signal("gameover")
