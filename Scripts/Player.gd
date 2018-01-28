@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+signal on_player_earned_likes(likes_count)
+
 onready var player_sprite = get_node("sprite")
 
 # Status
@@ -128,12 +130,12 @@ func process_input(delta):
 	move(player_vel)
 
 # Hotspot
-func _on_hotspot_enter( hotspot ):
+func _on_hotspot_enter(hotspot):
 	if (!hotspots.has(hotspot)):
 		hotspots.push_front(hotspot)
 	process_hotspots()
 
-func _on_hotspot_exit( hotspot ):
+func _on_hotspot_exit(hotspot):
 	hotspots.erase(hotspot)
 	process_hotspots()
 
@@ -154,6 +156,7 @@ func process_hotspots():
 func _on_selfie_token_found(selfie_token):
 	sfx_node.play("millenial_hero_sfx_camera_flash")
 	desperation -= (SERENITY_DUE_TO_LIKE * selfie_token.likes_count)
+	emit_signal("on_player_earned_likes", selfie_token.likes_count)
 
 func _on_startrucks_token_found(startrucks_token):
 	sfx_node.play("millenial_hero_sfx_camera_coffee")
