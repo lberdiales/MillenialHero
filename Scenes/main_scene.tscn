@@ -29,25 +29,25 @@ radius = 7.22867
 [sub_resource type="SampleLibrary" id=2]
 
 samples/millenial_hero_sfx_camera_coffee = {
-"db": 0.0,
+"db": -2.5,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 7 )
 }
 samples/millenial_hero_sfx_camera_flash = {
-"db": 0.0,
+"db": -8.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 8 )
 }
 samples/millenial_hero_sfx_camera_relax = {
-"db": 0.0,
+"db": -9.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 9 )
 }
 samples/millenial_hero_sfx_camera_steps = {
-"db": 0.0,
+"db": -6.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 10 )
@@ -330,12 +330,11 @@ texture = ExtResource( 13 )
 
 transform/pos = Vector2( -9.14972, 683.883 )
 
-[node name="Node" type="Node" parent="."]
+[node name="background_music" type="Node" parent="."]
 
-editor/display_folded = true
 script/script = ExtResource( 14 )
 
-[node name="music_1" type="StreamPlayer" parent="Node"]
+[node name="music_1" type="StreamPlayer" parent="background_music"]
 
 stream/stream = ExtResource( 15 )
 stream/play = false
@@ -346,7 +345,7 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="music_2" type="StreamPlayer" parent="Node"]
+[node name="music_2" type="StreamPlayer" parent="background_music"]
 
 stream/stream = ExtResource( 16 )
 stream/play = false
@@ -357,7 +356,7 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="music_3" type="StreamPlayer" parent="Node"]
+[node name="music_3" type="StreamPlayer" parent="background_music"]
 
 stream/stream = ExtResource( 17 )
 stream/play = false
@@ -368,14 +367,14 @@ stream/paused = false
 stream/loop_restart_time = 0.0
 stream/buffering_ms = 500
 
-[node name="animation_fadeout" type="Tween" parent="Node"]
+[node name="animation_fadeout" type="Tween" parent="background_music"]
 
 playback/process_mode = 1
 playback/active = false
 playback/repeat = false
 playback/speed = 1.0
 
-[node name="animation_fadein" type="Tween" parent="Node"]
+[node name="animation_fadein" type="Tween" parent="background_music"]
 
 playback/process_mode = 1
 playback/active = false
@@ -588,6 +587,6 @@ transform/pos = Vector2( -147.047, -38.9144 )
 
 transform/pos = Vector2( 161.51, 130.745 )
 
-[connection signal="button_up" from="Button" to="Node" method="_on_Button_button_up"]
+[connection signal="button_up" from="Button" to="background_music" method="_on_Button_button_up"]
 
 

@@ -11,4 +11,4 @@ func _ready():
 
 func set_val(val):
 	var capped_val = max(min(100,val),0)
-	set_frame(round((get_sprite_frames().get_frame_count()-1) * capped_val/100))
+	set_frame(round((get_sprite_frames().get_frame_count("default")-1) * capped_val/100))

@@ -11,4 +11,4 @@ func _ready():
 	pass
 
 func set_val(val):
-	label.set_text(val)
+	label.set_text(String(val))

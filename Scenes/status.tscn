@@ -27,7 +27,6 @@
 [ext_resource path="res://Assets/town/emoji/0025.png" type="Texture" id=25]
 [ext_resource path="res://Scripts/status.gd" type="Script" id=26]
 
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
