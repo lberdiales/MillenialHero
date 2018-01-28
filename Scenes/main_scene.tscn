@@ -182,6 +182,10 @@ collision/layers = 1
 collision/mask = 1
 collision/margin = 0.1
 script/script = ExtResource( 4 )
+MAX_DESPERATION = 1000.0
+TIME_TO_PROCESS_STATUS = 2
+DESPERATION_DUE_TO_NO_WIFI = 5
+DESPERATION_DUE_TO_NO_BATTERY = 1
 
 [node name="sprite" type="Sprite" parent="player"]
 
@@ -237,7 +241,6 @@ transform/pos = Vector2( -9.14972, 683.883 )
 
 [node name="Node" type="Node" parent="."]
 
-editor/display_folded = true
 script/script = ExtResource( 9 )
 
 [node name="music_1" type="StreamPlayer" parent="Node"]
