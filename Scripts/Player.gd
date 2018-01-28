@@ -162,6 +162,13 @@ func _on_selfie_token_found(selfie_token):
 	emit_signal("on_player_earned_likes", selfie_token.likes_count)
 
 func _on_startrucks_token_found(startrucks_token):
-	sfx_node.play("millenial_hero_sfx_camera_coffee")
+	sfx_node.play("millenial_hero_sfx_coffee")
 	battery_life += startrucks_token.battery_charge
 	emit_signal("on_player_drunk_coffee")
+
+# Angry/Relax
+func play_angry_sfx():
+	sfx_node.play("millenial_hero_sfx_angry_2")
+
+func play_relax_sfx():
+	sfx_node.play("millenial_hero_sfx_relax")

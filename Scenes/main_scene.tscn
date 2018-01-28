@@ -1,25 +1,26 @@
-[gd_scene load_steps=23 format=1]
+[gd_scene load_steps=24 format=1]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Assets/town/background01.png" type="Texture" id=2]
 [ext_resource path="res://Scenes/building_scene.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scripts/Player.gd" type="Script" id=4]
-[ext_resource path="res://Assets/town/token.png" type="Texture" id=5]
-[ext_resource path="res://Assets/player_se.png" type="Texture" id=6]
-[ext_resource path="res://Assets/audio/millenial_hero_sfx_camera_coffee.wav" type="Sample" id=7]
-[ext_resource path="res://Assets/audio/millenial_hero_sfx_camera_flash.wav" type="Sample" id=8]
-[ext_resource path="res://Assets/audio/millenial_hero_sfx_camera_relax.wav" type="Sample" id=9]
-[ext_resource path="res://Assets/audio/millenial_hero_sfx_camera_steps.wav" type="Sample" id=10]
-[ext_resource path="res://Assets/thumbsup/thumbsup.png" type="Texture" id=11]
-[ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=12]
-[ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=13]
-[ext_resource path="res://Scripts/music.gd" type="Script" id=14]
-[ext_resource path="res://Assets/audio/millenial_hero_light_track.ogg" type="AudioStream" id=15]
-[ext_resource path="res://Assets/audio/millenial_hero_medium_track.ogg" type="AudioStream" id=16]
-[ext_resource path="res://Assets/audio/millenial_hero_heavy_track.ogg" type="AudioStream" id=17]
-[ext_resource path="res://Scenes/hotspot_scene.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/selfie_token.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/startrucks_token.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scripts/music.gd" type="Script" id=4]
+[ext_resource path="res://Assets/audio/millenial_hero_light_track.ogg" type="AudioStream" id=5]
+[ext_resource path="res://Assets/audio/millenial_hero_medium_track.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Assets/audio/millenial_hero_heavy_track.ogg" type="AudioStream" id=7]
+[ext_resource path="res://Scripts/Player.gd" type="Script" id=8]
+[ext_resource path="res://Assets/town/token.png" type="Texture" id=9]
+[ext_resource path="res://Assets/player_se.png" type="Texture" id=10]
+[ext_resource path="res://Assets/audio/millenial_hero_sfx_angry_1.wav" type="Sample" id=11]
+[ext_resource path="res://Assets/audio/millenial_hero_sfx_angry_2.wav" type="Sample" id=12]
+[ext_resource path="res://Assets/audio/millenial_hero_sfx_camera_flash.wav" type="Sample" id=13]
+[ext_resource path="res://Assets/audio/millenial_hero_sfx_coffee.wav" type="Sample" id=14]
+[ext_resource path="res://Assets/audio/millenial_hero_sfx_relax.wav" type="Sample" id=15]
+[ext_resource path="res://Assets/thumbsup/thumbsup.png" type="Texture" id=16]
+[ext_resource path="res://Assets/town/overlay01.png" type="Texture" id=17]
+[ext_resource path="res://Assets/town/colliders01.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/hotspot_scene.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/selfie_token.tscn" type="PackedScene" id=20]
+[ext_resource path="res://Scenes/startrucks_token.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -28,29 +29,35 @@ radius = 7.22867
 
 [sub_resource type="SampleLibrary" id=2]
 
-samples/millenial_hero_sfx_camera_coffee = {
-"db": -2.5,
+samples/millenial_hero_sfx_angry_1 = {
+"db": -8.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 7 )
+"sample": ExtResource( 11 )
+}
+samples/millenial_hero_sfx_angry_2 = {
+"db": -6.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 12 )
 }
 samples/millenial_hero_sfx_camera_flash = {
 "db": -8.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 8 )
+"sample": ExtResource( 13 )
 }
-samples/millenial_hero_sfx_camera_relax = {
+samples/millenial_hero_sfx_coffee = {
+"db": -2.5,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 14 )
+}
+samples/millenial_hero_sfx_relax = {
 "db": -9.0,
 "pitch": 1.0,
 "priority": 0,
-"sample": ExtResource( 9 )
-}
-samples/millenial_hero_sfx_camera_steps = {
-"db": -6.0,
-"pitch": 1.0,
-"priority": 0,
-"sample": ExtResource( 10 )
+"sample": ExtResource( 15 )
 }
 
 [node name="Node2D" type="Node2D"]
@@ -207,8 +214,61 @@ transform/pos = Vector2( -158.282, 443.55 )
 
 transform/pos = Vector2( -1.26642, 531.279 )
 
+[node name="background_music" type="Node" parent="."]
+
+editor/display_folded = true
+script/script = ExtResource( 4 )
+
+[node name="light" type="StreamPlayer" parent="background_music"]
+
+stream/stream = ExtResource( 5 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="medium" type="StreamPlayer" parent="background_music"]
+
+stream/stream = ExtResource( 6 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="heavy" type="StreamPlayer" parent="background_music"]
+
+stream/stream = ExtResource( 7 )
+stream/play = false
+stream/loop = true
+stream/volume_db = 0.0
+stream/autoplay = false
+stream/paused = false
+stream/loop_restart_time = 0.0
+stream/buffering_ms = 500
+
+[node name="animation_fadeout" type="Tween" parent="background_music"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="animation_fadein" type="Tween" parent="background_music"]
+
+playback/process_mode = 1
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
 [node name="player" type="KinematicBody2D" parent="."]
 
+editor/display_folded = true
 transform/pos = Vector2( 4.87344, 42.4788 )
 input/pickable = false
 shapes/0/shape = SubResource( 1 )
@@ -217,28 +277,28 @@ shapes/0/trigger = false
 collision/layers = 1
 collision/mask = 1
 collision/margin = 0.1
-script/script = ExtResource( 4 )
+script/script = ExtResource( 8 )
 MIN_DESPERATION = 0.0
-MAX_DESPERATION = 1000.0
+MAX_DESPERATION = 100.0
 TIME_TO_PROCESS_STATUS = 2
 DESPERATION_DUE_TO_NO_WIFI = 5
 MIN_BATTERY_LIFE = 0.0
 MAX_BATTERY_LIFE = 100.0
-DEFAULT_BATTERY_USE = 1
+DEFAULT_BATTERY_USE = 2
 DESPERATION_DUE_TO_LOW_BATTERY = 10
 DESPERATION_DUE_TO_NO_BATTERY = 25
-SERENITY_DUE_TO_LIKE = 1
+SERENITY_DUE_TO_LIKE = 5
 
 [node name="token" type="Sprite" parent="player"]
 
 transform/pos = Vector2( 0, -35 )
 z/z = 1
 z/relative = false
-texture = ExtResource( 5 )
+texture = ExtResource( 9 )
 
 [node name="sprite" type="Sprite" parent="player"]
 
-texture = ExtResource( 6 )
+texture = ExtResource( 10 )
 
 [node name="shape" type="CollisionShape2D" parent="player"]
 
@@ -290,7 +350,7 @@ config/lifetime = 1.5
 config/emit_timeout = 1.0
 config/emitting = false
 config/process_mode = 1
-config/texture = ExtResource( 11 )
+config/texture = ExtResource( 16 )
 params/direction = 180.0
 params/spread = 60.0
 params/linear_velocity = 40.0
@@ -312,90 +372,23 @@ randomness/linear_velocity = 0.2
 [node name="overlay" type="Sprite" parent="."]
 
 transform/pos = Vector2( 0.262939, -0.187378 )
-texture = ExtResource( 12 )
+texture = ExtResource( 17 )
 
 [node name="overlay1" type="Sprite" parent="."]
 
 visibility/opacity = 0.7
 transform/pos = Vector2( 0.262939, -0.187378 )
 z/z = 1
-texture = ExtResource( 12 )
+texture = ExtResource( 17 )
 
 [node name="collition_ref" type="Sprite" parent="."]
 
 visibility/visible = false
-texture = ExtResource( 13 )
+texture = ExtResource( 18 )
 
 [node name="Position2D" type="Position2D" parent="."]
 
 transform/pos = Vector2( -9.14972, 683.883 )
-
-[node name="background_music" type="Node" parent="."]
-
-script/script = ExtResource( 14 )
-
-[node name="light" type="StreamPlayer" parent="background_music"]
-
-stream/stream = ExtResource( 15 )
-stream/play = false
-stream/loop = true
-stream/volume_db = 0.0
-stream/autoplay = false
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
-
-[node name="medium" type="StreamPlayer" parent="background_music"]
-
-stream/stream = ExtResource( 16 )
-stream/play = false
-stream/loop = true
-stream/volume_db = 0.0
-stream/autoplay = false
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
-
-[node name="heavy" type="StreamPlayer" parent="background_music"]
-
-stream/stream = ExtResource( 17 )
-stream/play = false
-stream/loop = true
-stream/volume_db = 0.0
-stream/autoplay = false
-stream/paused = false
-stream/loop_restart_time = 0.0
-stream/buffering_ms = 500
-
-[node name="animation_fadeout" type="Tween" parent="background_music"]
-
-playback/process_mode = 1
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="animation_fadein" type="Tween" parent="background_music"]
-
-playback/process_mode = 1
-playback/active = false
-playback/repeat = false
-playback/speed = 1.0
-
-[node name="Button" type="Button" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = -27.0
-margin/top = -52.0
-margin/right = 27.0
-margin/bottom = -32.0
-toggle_mode = false
-enabled_focus_mode = 2
-shortcut = null
-text = "MUSIC"
-flat = false
 
 [node name="levels" type="Node" parent="."]
 
@@ -407,39 +400,39 @@ visibility/visible = false
 
 editor/display_folded = true
 
-[node name="hotspot1" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot1" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 0.283295, -298.743 )
 
-[node name="hotspot2" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot2" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 321.866, -128.414 )
 
-[node name="hotspot3" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot3" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 632.547, 46.6853 )
 
-[node name="hotspot4" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot4" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -312.442, -128.414 )
 
-[node name="hotspot5" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot5" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 5.05243, 52.8172 )
 
-[node name="hotspot6" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot6" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 312.327, 228.597 )
 
-[node name="hotspot7" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot7" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -615.629, 50.0919 )
 
-[node name="hotspot8" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot8" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -310.398, 225.191 )
 
-[node name="hotspot9" parent="levels/level_1/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot9" parent="levels/level_1/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 3.68982, 408.466 )
 
@@ -447,55 +440,55 @@ transform/pos = Vector2( 3.68982, 408.466 )
 
 editor/display_folded = true
 
-[node name="selfie1" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie1" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 4.75654, -305.601 )
 
-[node name="selfie2" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie2" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 325.713, -128.99 )
 
-[node name="selfie3" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie3" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 639.878, 52.1497 )
 
-[node name="selfie4" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie4" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -308.842, -129.556 )
 
-[node name="selfie5" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie5" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 13.2474, 49.8855 )
 
-[node name="selfie6" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie6" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 321.751, 226.497 )
 
-[node name="selfie7" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie7" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -616.779, 51.0176 )
 
-[node name="selfie8" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie8" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -303.747, 227.063 )
 
-[node name="selfie9" parent="levels/level_1/tokens" instance=ExtResource( 19 )]
+[node name="selfie9" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 8.15289, 405.938 )
 
-[node name="startrucks_token1" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
+[node name="startrucks_token1" parent="levels/level_1/tokens" instance=ExtResource( 21 )]
 
 transform/pos = Vector2( 7.69775, -130.27 )
 
-[node name="startrucks_token2" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
+[node name="startrucks_token2" parent="levels/level_1/tokens" instance=ExtResource( 21 )]
 
 transform/pos = Vector2( 319.753, 48.5551 )
 
-[node name="startrucks_token3" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
+[node name="startrucks_token3" parent="levels/level_1/tokens" instance=ExtResource( 21 )]
 
 transform/pos = Vector2( -301.397, 46.7787 )
 
-[node name="startrucks_token4" parent="levels/level_1/tokens" instance=ExtResource( 20 )]
+[node name="startrucks_token4" parent="levels/level_1/tokens" instance=ExtResource( 21 )]
 
 transform/pos = Vector2( 5.32922, 225.011 )
 
@@ -507,47 +500,47 @@ visibility/visible = false
 
 editor/display_folded = true
 
-[node name="hotspot1" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot1" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 5.5542, -299.072 )
 
-[node name="hotspot2" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot2" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 11.1473, -126.615 )
 
-[node name="hotspot3" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot3" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -294.613, -121.022 )
 
-[node name="hotspot4" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot4" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -306.732, 51.4343 )
 
-[node name="hotspot5" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot5" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( -605.967, 52.3665 )
 
-[node name="hotspot6" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot6" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 327.162, 61.6885 )
 
-[node name="hotspot7" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot7" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 639.448, 49.5699 )
 
-[node name="hotspot8" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot8" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 314.111, 229.484 )
 
-[node name="hotspot9" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot9" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 16.7405, 232.281 )
 
-[node name="hotspot10" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot10" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 3.6897, 401.008 )
 
-[node name="hotspot11" parent="levels/level_2/hotspots" instance=ExtResource( 18 )]
+[node name="hotspot11" parent="levels/level_2/hotspots" instance=ExtResource( 19 )]
 
 transform/pos = Vector2( 1.82532, 54.2309 )
 
@@ -555,38 +548,36 @@ transform/pos = Vector2( 1.82532, 54.2309 )
 
 editor/display_folded = true
 
-[node name="selfie1" parent="levels/level_2/tokens" instance=ExtResource( 19 )]
+[node name="selfie1" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -150.92, -216.11 )
 
-[node name="selfie2" parent="levels/level_2/tokens" instance=ExtResource( 19 )]
+[node name="selfie2" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -464.138, -38.9929 )
 
-[node name="selfie3" parent="levels/level_2/tokens" instance=ExtResource( 19 )]
+[node name="selfie3" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 324.5, -131.28 )
 
-[node name="selfie4" parent="levels/level_2/tokens" instance=ExtResource( 19 )]
+[node name="selfie4" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( -303.801, 219.226 )
 
-[node name="selfie5" parent="levels/level_2/tokens" instance=ExtResource( 19 )]
+[node name="selfie5" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 482.041, 134.396 )
 
-[node name="selfie6" parent="levels/level_2/tokens" instance=ExtResource( 19 )]
+[node name="selfie6" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
 
 transform/pos = Vector2( 166.027, 314.31 )
 
-[node name="startrucks_token1" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
+[node name="startrucks_token1" parent="levels/level_2/tokens" instance=ExtResource( 21 )]
 
 transform/pos = Vector2( -147.047, -38.9144 )
 
-[node name="startrucks_token2" parent="levels/level_2/tokens" instance=ExtResource( 20 )]
+[node name="startrucks_token2" parent="levels/level_2/tokens" instance=ExtResource( 21 )]
 
 transform/pos = Vector2( 161.51, 130.745 )
-
-[connection signal="button_up" from="Button" to="background_music" method="_on_Button_button_up"]
 
 
