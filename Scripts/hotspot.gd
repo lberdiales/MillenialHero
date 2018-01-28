@@ -22,7 +22,6 @@ func _ready():
 	available_energy = randi()%MAX_ENERGY+MIN_ENERGY
 	
 func _on_hotspot_body_enter( body ):
-	print('kakakaka')
 	if (body.get_name() == "player"):
 		emit_signal("on_hotspot_enter", self)
 
