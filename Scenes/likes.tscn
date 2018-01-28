@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://Assets/thumbsup/thumbsup.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/likes.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFontData" id=1]
+
+font_path = "res://Assets/SeattleAvenue.otf"
+
+[sub_resource type="DynamicFont" id=2]
+
+font/size = 29
+font/use_mipmaps = true
+font/use_filter = false
+font/font = SubResource( 1 )
+
+[node name="Sprite" type="Sprite"]
+
+texture = ExtResource( 1 )
+script/script = ExtResource( 2 )
+
+[node name="value" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = -116.0
+margin/top = -7.0
+margin/right = -33.0
+margin/bottom = 29.0
+custom_fonts/font = SubResource( 2 )
+text = "1234"
+align = 2
+valign = 1
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+
