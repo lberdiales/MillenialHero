@@ -4,6 +4,7 @@ signal on_player_earned_likes(likes_count)
 signal on_player_drunk_coffee()
 
 onready var player_sprite = get_node("sprite")
+onready var particle_node = get_node("likes_particle")
 
 # Status
 export var MIN_DESPERATION = 0.0
@@ -156,6 +157,7 @@ func process_hotspots():
 # Tokens
 func _on_selfie_token_found(selfie_token):
 	sfx_node.play("millenial_hero_sfx_camera_flash")
+	particle_node.set_emitting(true)
 	desperation -= (SERENITY_DUE_TO_LIKE * selfie_token.likes_count)
 	emit_signal("on_player_earned_likes", selfie_token.likes_count)
 
