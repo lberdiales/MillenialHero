@@ -30,14 +30,6 @@ func _on_hotspot_body_exit( body ):
 		emit_signal("on_hotspot_exit", self)
 
 func signal_strength(otherTransform):
-	# Deberia devolver un % (si los centros coinciden 100%)
 	var screen_distance = otherTransform.get_global_pos()-get_pos()
-	var distance = Vector2().distance_to(Vector2( screen_distance.x , screen_distance.y * ratio))
-	draw_queue.push_front(Rect2(Vector2(),Vector2( screen_distance.x , screen_distance.y * ratio)))
-	update()
-	return (distance/side.get_pos().x) * 100.0
-	
-func _draw():
-	for rect in draw_queue:
-		draw_line(rect.pos,rect.pos+rect.size,Color(0,255,0))
-	draw_queue = []
+	var distance = Vector2().distance_to(Vector2( screen_distance.x, screen_distance.y * ratio))
+	return 100.0 - ((distance/side.get_pos().x) * 100.0)
