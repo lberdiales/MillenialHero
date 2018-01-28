@@ -2,11 +2,10 @@ extends Area2D
 
 signal on_startrucks_token_found(startrucks_token)
 
-# FIXME: Definir cantidad de likes/reputacion
-export var likes = 10
+var battery_charge
 
 func _ready():
-	pass
+	battery_charge = randi()%25 + randf()
 
 func _on_startrucks_token_body_enter( body ):
 	if (body.get_name() == "player"):
