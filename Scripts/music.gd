@@ -41,7 +41,7 @@ func switch_music_stream(desperate):
 		if (next_music_stream == music_stream_1):
 			sfx.play("millenial_hero_sfx_relax")
 		elif (next_music_stream == music_stream_2):
-			sfx.play("millenial_hero_sfx_angry_2")
+			sfx.play("millenial_hero_sfx_angry_2_short")
 		elif (next_music_stream == music_stream_3):
 			sfx.play("millenial_hero_sfx_angry_1")
 
